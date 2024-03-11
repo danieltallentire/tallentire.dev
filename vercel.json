@@ -1,6 +1,7 @@
 {
     "rewrites": 
     [
+        { "source": "/harp/", "destination": "https://vuejs-harp-reflexive-survey.vercel.app/index.html" },
         { "source": "/harp/:asset*", "destination": "https://vuejs-harp-reflexive-survey.vercel.app/:asset*" },
         { "source": "/(.*)", "destination": "/" }
     ]
