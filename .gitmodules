@@ -1,2 +1,3 @@
-[submodule "themes/dose"]
+[submodule "dose theme"]
+	path = "themes/dose"
 	url = https://github.com/oltdaniel/dose.git
