@@ -1,32 +1,34 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{ lang }}">
     <head>
         <meta content="IE=edge" http-equiv="X-UA-Compatible" />
         <meta content="text/html; charset=utf-8" http-equiv="content-type" />
         <meta content="width=device-width, initial-scale=1" name="viewport" />
 
-        
+        {% block site_meta %}
         <meta name="robots" content="index,follow">
         <meta name="googlebot" content="index,follow">
 
         <meta name="google" content="nositelinkssearchbox">
         <meta name="google" content="notranslate">
-        
+        {% endblock site_meta %}
 
-        
-        
-        
+        {% block page_meta %}
+        {% if config.description %}
+        <meta name="description" content="{{ config.description | truncate(length=150) }}">
+        {% endif %}
+        {% endblock page_meta %}
 
-        
-        <link href="https://tallentire.dev/style.css" rel="stylesheet" />
-        
-        <title></title>
+        {% block css %}
+        <link href="{{ get_url(path='style.css', trailing_slash=false) | safe }}" rel="stylesheet" />
+        {% endblock css %}
+        <title>{% block title %}{{ config.title }}{% endblock title%}</title>
         </script>
     </head>
     <body>
         <script>
             function get_theme() {
-                return localStorage.getItem('prefers-color') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'dark')
+                return localStorage.getItem('prefers-color') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : '{% if config.extra.default_theme %}{{ config.extra.default_theme }}{% else %}light{% endif %}')
             }
 
             /**
@@ -47,39 +49,34 @@
             <hr text="Daniel Tallentire Consulting" />
             <div class="header">
                 <a href="/">Home</a>
-                
-                
-                <a href='https:&#x2F;&#x2F;tallentire.dev&#x2F;blog&#x2F;'>Blog</a>
-                <a href="https:&#x2F;&#x2F;tallentire.dev&#x2F;projects&#x2F;">Projects</a>
+                {% set blog_url = get_url(path="@/blog/_index.md") %}
+                {% set proj_url = get_url(path="@/projects/_index.md") %}
+                <a href='{{ blog_url }}'>Blog</a>
+                <a href="{{ proj_url }}">Projects</a>
             </div>
         </header>
-        
-    <div style="display: block; padding: 20vh 0; width: 100%; text-align: center;">
-        <h1>404</h1>
-        <h5>NOT FOUND</h5>
-    </div>
-
+        {% block content %}
+        <p>please fill this with a template</p>
+        {% endblock content %}
         <footer>
-            <hr text="&copy; Copyright 2024" />
+            <hr text="&copy; Copyright {{ now() | date(format='%Y') }}" />
             <div class="footer-social-media">
                 <a id="toggle-theme"></a>
                 <a href="/tags">Tags</a>
-                
-                
-                    
-                    <a href="https://github.com/danieltallentire" target="_blank">GitHub</a>
-                    
-                
-                    
-                    <a href="https://www.linkedin.com/in/danieltallentire/" target="_blank">LinkedIn</a>
-                    
-                
-                
+                {% if config.extra.social_media %}
+                {% for social in config.extra.social_media %}
+                    {% if social.rel %}
+                    <a href="{{ social.url | safe }}" rel="{{ social.rel }}" target="_blank">{{ social.name }}</a>
+                    {% else %}
+                    <a href="{{ social.url | safe }}" target="_blank">{{ social.name }}</a>
+                    {% endif %}
+                {% endfor %}
+                {% endif %}
             </div>
         </footer>
     </body>
 
-    
+    {% block js %}
     <script>
         function switch_language(e) {
             window.location.href = `/${e.value === default_language ? '' : e.value}`
@@ -112,5 +109,5 @@
 
         init_toggle_theme()
     </script>
-    
+    {% endblock js %}
 </html>
