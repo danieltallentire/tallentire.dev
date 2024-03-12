@@ -3,7 +3,7 @@ title = "HARP Reflective Survey"
 date = 2023-02-01
 description = "Why I built a quick app for a survey."
 [taxonomies]
-tags = ["MBA"]
+tags = ["MBA", "Vercel", "VueJS"]
 +++
 
 I started out with a piece of paper given to me on the MBA.
