@@ -18,6 +18,7 @@
                 <h3>{{ page.title }}</h3>
                 <time>{{ page.date }}</time>
                 <p>{{ page.description }}</p>
+                <p>
                 {% if page.extra.github_link %} <a class="github" onclick="redirect('{{ page.extra.github_link | safe }}')">Github</a>{% endif %}
                 {% if page.extra.website_link %} <a class="website" onclick="redirect('{{ page.extra.website_link | safe }}')">Website</a> {% endif %}
                 {% if page.extra.blog_page %}
@@ -25,6 +26,7 @@
                     {% set blog_page = get_page(path=blog_file) %}
                     <a class="blog" onclick="redirect('{{ blog_page.permalink | safe }}')">{{blog_page.title}}</a>
                 {% endif %}
+                </p>
                 <div class="chips">
                     {% if page.translations | length > 1 %}
                         {% for l in page.translations %}

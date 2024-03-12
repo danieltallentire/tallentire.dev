@@ -1,6 +1,7 @@
 +++
 title = "HARP Reflective Survey"
 date = 2023-02-01
+description = "Why I built a quick app for a survey."
 [taxonomies]
 tags = ["MBA"]
 +++
@@ -28,6 +29,23 @@ I also needed to be able to build it quickly using tools that I knew how to use,
 
 I made a Vite app using Vuejs. I used graph.js for creating the images.
 I ended up making something that could generically handle any similar questionairre
+
+## How is it deployed?
+
+I deployed it to [Vercel](https://vercel.com). In order to make it appear as a subfolder, I setup a [rewrite rule on my tallentire.dev deployment](https://github.com/danieltallentire/tallentire.dev/blob/d4d72ddead6f9b859a5695ad536fc01838354649/vercel.json).
+
+This JSON file rewrites requests to /harp/ to the index page of the vercel app, and all assets are rewritten below that folder. 
+
+```json
+{
+    "rewrites": 
+    [
+        { "source": "/harp/", "destination": "https://vuejs-harp-reflexive-survey.vercel.app/index.html" },
+        { "source": "/harp/:asset*", "destination": "https://vuejs-harp-reflexive-survey.vercel.app/:asset*" },
+        { "source": "/(.*)", "destination": "/" }
+    ]
+}
+```
 
 
 # What about my results
