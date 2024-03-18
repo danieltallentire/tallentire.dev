@@ -5,4 +5,14 @@ max-width: 540px;
 text-align: center;
 }
 
+.footer-industry {
+    padding-top: 1em;
+
+    .logo {
+        max-width: 80px;
+    }
+}
+
+
+
 @import "../themes/dose/sass/style.scss"
