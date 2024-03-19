@@ -1,7 +1,7 @@
 +++
 title = "Daniel Tallentire - Home"
 sort_by = "date"
-template = "index.html"
+template = "home.html"
 page_template = "page.html"
 +++
 

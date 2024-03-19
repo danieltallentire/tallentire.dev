@@ -9,5 +9,5 @@ tags = ["MBA"]
 [extra]
 github_link = "https://github.com/danieltallentire/vuejs-harp-reflexive-survey"
 website_link = "https://tallentire.dev/harp/"
-blog_page = "HARP Reflective Survey.md"
+blog_page = "2023-02-01 HARP Reflective Survey.md"
 +++

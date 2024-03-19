@@ -1,8 +1,8 @@
 header {
-padding: 1rem 0;
-margin: 0 auto;
-max-width: 540px;
-text-align: center;
+    padding: 1rem 0;
+    margin: 0 auto;
+    max-width: 540px;
+    text-align: center;
 }
 
 .footer-industry {
@@ -13,6 +13,9 @@ text-align: center;
     }
 }
 
+h1 {
+    line-height: 2rem;
+}
 
 
 @import "../themes/dose/sass/style.scss"
