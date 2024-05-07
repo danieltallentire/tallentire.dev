@@ -1,5 +1,5 @@
 +++
-title = "Using Atata to create UI tests for user defined web forms"
+title = "Load testing using Atata and Selenoid"
 date = 2021-04-15
 description = "Solving a UI automation testing problem for user defined forms."
 [taxonomies]
