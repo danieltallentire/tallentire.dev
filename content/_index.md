@@ -5,10 +5,10 @@ template = "home.html"
 page_template = "page.html"
 +++
 
-# Welcome to Daniel Tallentire Consultancy
+# Welcome to Daniel Tallentire's Homepage
 
-I build software, teams and systems to give you the best opportunities for success.
+I'm an Engineering Manager at [Citation Group](https://www.citation.co.uk/). I build software, teams and systems to giving the best opportunities for success.
 
-I'm open to opportunities working contract or permanent with forward-thinking businesses that are open to deeply considering why they are building software, and who they are building it for.
+Get in touch to discuss opportunities for public speaking on tech leadership, or if you'd just like to have a chat.
 
-Get in touch with me on [LinkedIn](https://www.linkedin.com/in/danieltallentire/).
+Contact me through [LinkedIn](https://www.linkedin.com/in/danieltallentire/).
