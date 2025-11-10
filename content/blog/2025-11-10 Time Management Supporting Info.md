@@ -1,6 +1,6 @@
 +++
 title = "Time Management Supporting Info"
-date = 2024-03-19
+date = 2025-11-10
 description = "How to get better at Time Management - podcast support documentation"
 [taxonomies]
 tags = ["Management", "Learning"]
