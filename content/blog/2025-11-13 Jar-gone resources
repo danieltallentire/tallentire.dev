@@ -1,0 +1,208 @@
++++
+title = "Jar-gone: How to talk to Non-Techies"
+date = 2021-03-26
+description = "Resources from my talk at TechMids 2025"
+[taxonomies]
+tags = ["learning", "talk", "conference"]
++++
+
+
+# Step 1: Technical Input - Brain-dump everything in engineering terms:
+
+- Technical description with proper terminology
+- Technical problems and limitations
+- Implementation architecture and components
+- Technical benefits with metrics
+
+# Step 2: Non-Technical Translation - Systematically convert each section:
+
+- Each section has translation tips showing you how to convert technical terms
+- Side-by-side mapping (Technical → Plain language)
+- A relatable analogy
+- The problem statement
+- The solution
+- Concrete benefits
+- A memorable takeaway
+
+```markdown
+# 2-Minute Technical Concept Explainer Template
+
+## Concept: [Name of the technical concept]
+
+---
+
+## STEP 1: Technical Input (Fill this out first)
+
+### 1A. Technical Description
+**What is this technically?**
+
+[Write the technical explanation as you would to another engineer. Use proper terminology, acronyms, implementation details.]
+
+**Example:** "Event-based messaging using a pub/sub pattern with message brokers (e.g., RabbitMQ, Kafka). Services publish domain events to topics/queues, consumers subscribe to relevant events and process them asynchronously. Implements eventual consistency with event sourcing capabilities."
+
+---
+
+### 2A. Technical Problem Statement
+**What technical problems does this solve?**
+
+[List the technical pain points with the current/old approach]
+
+- [Technical limitation #1]
+- [Technical limitation #2]
+- [Technical limitation #3]
+
+**Example:**
+- Tight coupling between services requiring synchronous HTTP calls
+- Polling-based integration patterns waste CPU cycles and increase latency
+- Difficult to add new consumers without modifying existing services
+- No built-in retry/dead letter queue handling for failures
+- Hard to maintain transaction boundaries across distributed systems
+
+---
+
+### 3A. Technical Implementation
+**How does it work technically?**
+
+[Describe the architecture, components, and data flow in technical terms]
+
+**Key components:**
+1. [Technical component #1 and its role]
+2. [Technical component #2 and its role]
+3. [Technical component #3 and its role]
+
+**Example:**
+1. Event producers publish domain events to message broker topics
+2. Message broker (RabbitMQ) handles routing, persistence, and delivery guarantees
+3. Event consumers subscribe to topics and process messages independently
+4. Dead letter queues capture failed messages for retry/analysis
+5. Event store maintains audit trail of all domain events
+
+---
+
+### 4A. Technical Benefits
+**What are the technical improvements?**
+
+- [Technical benefit #1 with metrics if available]
+- [Technical benefit #2 with metrics if available]
+- [Technical benefit #3 with metrics if available]
+
+**Example:**
+- Reduced service coupling - services only depend on message schema, not each other
+- Async processing reduces API response times from 800ms to 50ms
+- Horizontal scalability - can add consumer instances without code changes
+- Built-in resilience with message persistence and retry mechanisms
+- Enables CQRS and event sourcing patterns
+
+---
+
+## STEP 2: Non-Technical Translation (Fill this out second)
+
+### 1B. The Simple Analogy (20 seconds)
+**What everyday thing is this like?**
+
+[Take your technical description from 1A and find a real-world analogy. Think: physical objects, familiar processes, common experiences]
+
+**Translation tips:**
+- Replace "pub/sub" with → notifications, announcements, broadcasting
+- Replace "async processing" with → doing things in the background
+- Replace "message broker" with → messaging system, notification center
+- Replace "coupling" with → dependencies, connections
+
+**Example:** "Event-based messaging is like a notification system on your phone. Instead of apps constantly checking 'has something happened yet?', they simply wait to receive a notification when something important occurs."
+
+---
+
+### 2B. The Problem We're Solving (30 seconds)
+**What business impact did the technical problems cause?**
+
+[Take each technical problem from 2A and translate it to business impact]
+
+Technical problem → Business impact:
+- [Technical problem #1] → [What this meant for users/business]
+- [Technical problem #2] → [What this meant for users/business]
+- [Technical problem #3] → [What this meant for users/business]
+
+**Example:**
+- Tight coupling → "Systems were tangled together, so changing one thing could break another"
+- Polling overhead → "Systems wasted resources constantly checking for updates, making everything slower"
+- Hard to extend → "Adding new features took months because we had to modify multiple systems"
+
+**Non-technical version:**
+"Previously, our systems had to constantly check each other for updates, like calling someone every 5 minutes to ask 'are you done yet?' This wasted resources, slowed things down, and made it hard to add new features."
+
+---
+
+### 3B. How Our Solution Works (40 seconds)
+**How does it work in plain language?**
+
+[Take your technical implementation from 3A and translate each component]
+
+Technical component → Plain language:
+1. [Technical component #1] → [What it does in simple terms]
+2. [Technical component #2] → [What it does in simple terms]
+3. [Technical component #3] → [What it does in simple terms]
+
+**Translation tips:**
+- Focus on WHAT happens, not HOW it's implemented
+- Use active verbs: "sends," "listens," "responds," "notifies"
+- Remove component names unless absolutely necessary
+
+**Example:**
+"Now, when something important happens - like a customer places an order - our system broadcasts a message. Any part of our platform that needs to know about this simply listens for that message and responds automatically. It's immediate, efficient, and new features can easily tune in to these messages without disrupting existing systems."
+
+---
+
+### 4B. The Benefits (20 seconds)
+**What do the technical benefits mean for the business?**
+
+[Take each technical benefit from 4A and translate to business value]
+
+Technical benefit → Business value:
+- [Technical benefit #1] → [What this enables/improves for users/business]
+- [Technical benefit #2] → [What this enables/improves for users/business]
+- [Technical benefit #3] → [What this enables/improves for users/business]
+
+**Example:**
+- API response time reduction (800ms → 50ms) → "Customers get updates instantly instead of waiting"
+- Horizontal scalability → "We can handle 10x more orders without slowing down"
+- Reduced coupling → "New features take weeks instead of months to add"
+
+---
+
+### 5B. The One Thing to Remember (10 seconds)
+**What's the essential takeaway?**
+
+[Combine your analogy (1B) with the top business benefit (4B) into one memorable sentence]
+
+**Formula:** [What we changed] + [Why it matters]
+
+**Example:** "Instead of our systems constantly checking each other, they now send instant messages when something important happens - making everything faster, more reliable, and easier to improve."
+
+---
+
+## Delivery Tips
+
+- **Pace yourself:** Aim for about 150 words per 30 seconds
+- **Check understanding:** Pause after the analogy to see if it lands
+- **Use hand gestures:** Physical demonstrations help cement abstract concepts
+- **Prepare for the follow-up question:** Have a slightly deeper explanation ready
+- **Know your audience:** Adjust the analogy based on their background
+
+## Common Pitfalls to Avoid
+
+- ❌ Using acronyms without explanation
+- ❌ Diving into technical implementation details
+- ❌ Assuming they understand prerequisite concepts
+- ❌ Being condescending about their technical knowledge
+- ❌ Rushing through the analogy (it's the foundation)
+
+---
+
+**Time allocation breakdown:**
+- Analogy: 20s
+- Problem: 30s
+- Solution: 40s
+- Benefits: 20s
+- Takeaway: 10s
+**Total: 2 minutes**
+```
