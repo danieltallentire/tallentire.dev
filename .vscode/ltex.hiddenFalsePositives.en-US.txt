@@ -1,0 +1,1 @@
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QWelcome to Daniel Tallentire Consultancy\\E$"}
